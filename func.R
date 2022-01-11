@@ -6,6 +6,13 @@ sumofArtist<-function(name){
   print(c(name,h))
   
 }
+init<-function(){
+  #Installing Packages that are not already available in the system 
+  list.of.packages <- c("ggplot2","dplyr","readxl")
+  new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+  if(length(new.packages)) {install.packages(new.packages)
+    library(new.packages)}
+}
 
 bestofArtist<-function(name){
   x1 <- read_excel("spotify.xlsx")
@@ -79,9 +86,10 @@ Artistsummary<-function(){
     #print(newrow)
     i=1+i
   }
- # jj<-df[order(df[,2],decreasing = TRUE),]
-  #jj
-df
+ jj<-df[order(df[,2],decreasing = TRUE),]
+  jj
+  
+
   
 }
 
